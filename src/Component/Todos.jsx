@@ -2,12 +2,17 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {  faPenToSquare, faTrash, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { completeTask, editTask, removeTask, todoSlice } from '../store/task'
+import { completeTask, editTask, removeTask } from '../store/task'
 import { EditTodo } from './EditTodo'
 
 
 export const Todos = () => {
     const taskSlice = useSelector(state => state.task.todo);
+    const userSlice = useSelector(state => state.user.users);
+
+    console.log(userSlice);
+  
+
 
     const dispatch = useDispatch()
 

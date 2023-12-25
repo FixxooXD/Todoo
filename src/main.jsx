@@ -12,12 +12,14 @@ import {
 import { Container } from './Component/Container.jsx'
 import Layout from './Component/Pages/Layout.jsx'
 import { Signup } from './Component/Pages/Signup.jsx'
+import { Login } from './Component/Pages/Login.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path="/todos" element={<Container />} />
-      <Route path="/auth" element={<Signup />} />
+      <Route path="todos" element={<Container />} />
+      <Route path="auth" element={<Signup />} />
+      <Route path="auth/login" element={<Login />} />
     </Route>
   )
 );
