@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
-import { addTask } from "../store/task"
+import { addTask, fetchTasks } from "../store/task"
 
 const AddTask = () => {
     const [task, setTask] = useState('')
@@ -13,6 +13,7 @@ const AddTask = () => {
     const handleClick = (event) => {
       event.preventDefault();
           dispatch(addTask({task}))
+          dispatch(fetchTasks())
           setTask("")
     }
   

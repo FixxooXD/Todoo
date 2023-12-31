@@ -16,8 +16,8 @@ export const Login = () => {
     userRef.current.focus();
   }, []);
 
-  const taskUsers = useSelector((state) => state.user.users);
-  // console.log(taskUsers);
+  const taskUsers = useSelector((state) => state.task.users.userData.userInfo);
+  console.log(taskUsers);
   // console.log(validation);
 
   useEffect(() => {
@@ -28,17 +28,17 @@ export const Login = () => {
 
   useEffect(() => {
     taskUsers.map((user) =>
-      user.password === inputPwd ? setValidPwd(true) : setInputPwd(false)
+      user.userPassword === inputPwd ? setValidPwd(true) : setInputPwd(false)
     );
   }, [inputPwd]);
 
-  useEffect(() => {
-    taskUsers.map((user) =>
-      user.userName === inputUser && user.password === inputPwd
-        ? setValidation(true)
-        : setValidation(false)
-    );
-  }, [inputUser, inputPwd]);
+  // useEffect(() => {
+  //   taskUsers.map((user) =>
+  //     user.userName === inputUser && user.password === inputPwd
+  //       ? setValidation(true)
+  //       : setValidation(false)
+  //   );
+  // }, [inputUser, inputPwd]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

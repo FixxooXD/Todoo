@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const express = require("express");
 require("dotenv").config();
-const Todos = require("./models/todoSchema");
+const Todos = require("../../../server/models/todoSchema");
 const cors = require('cors')
 
 const app = express();
@@ -40,7 +40,7 @@ app.get("/todos/:id", async (req, res) => {
 
 // Add Todo
 app.post("/todos", async (req, res) => {
-  try {   
+  try {
     const todos = await Todos.create(req.body);
     res.status(200).json(todos);
   } catch (error) {

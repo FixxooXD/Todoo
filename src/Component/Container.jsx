@@ -5,9 +5,9 @@ import { Todos } from './Todos'
 
 export const Container = () => {
 
-  const taskSlice = useSelector(state => state.task.todo);
+  // const taskSlice = useSelector(state => state.task.todo);
 
-  console.log(taskSlice);
+  // console.log(taskSlice);
 
   return (
     <div className='flex flex-col items-center w-full border'>

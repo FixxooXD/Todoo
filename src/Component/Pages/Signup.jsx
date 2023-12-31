@@ -7,8 +7,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import login from "../../assets/login.svg";
-import { addUser } from "../../store/users";
-import { useNavigate, useNavigation } from "react-router-dom";
+import { addUser } from "../../store/task";
+import { useNavigate } from "react-router-dom";
+import { AddUser } from "../../store/task";
+
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -64,7 +66,7 @@ export const Signup = () => {
     e.preventDefault();
     setSuccess(true);
     dispatch(
-      addUser({
+      AddUser({
         userName: user,
         password: pwd,
       })

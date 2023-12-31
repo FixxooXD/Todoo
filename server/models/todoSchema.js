@@ -2,23 +2,35 @@ const mongoose = require("mongoose")
 
  const todoSchema = mongoose.Schema(
     {
-        id: {
-            type: Number,
-            required: [true, "Enter the ID"],
-            unique: [true, "Enter a Unique ID"]
-        },
-        task: {
-            type: String,
-            required: [true, "Enter a Task"],
-        },
-        isEditing: {
-            type: Boolean,
-            required: true,
-        },
-        isComplete: {
-            type: Boolean,
-            required: true,
-        },  
+            user:{
+                userId : {
+                    type: Number,
+                    required: [true, "Enter the userID"],
+                    unique: [true, "Enter a Unique userId"]
+                },
+                userName :{
+                    type: String,
+                    required: [true, "Enter the userID"],
+                    unique: [true, "Enter a Unique userId"]
+                }, 
+                userPassword: {
+                    type: String,
+                    required: [true, "Enter the userPassword"]
+                }
+            }
+        ,
+        todo:[{
+            task: {
+                type: String,
+                unique: [true, "Enter a Unique userId"]
+            },
+            isEditing: {
+                type: Boolean,
+            },
+            isComplete: {
+                type: Boolean,
+            },
+        }]
     },
     {
         timestamps: true
