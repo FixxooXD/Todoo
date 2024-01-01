@@ -43,7 +43,7 @@ export const Signup = () => {
   useEffect(() => {
     const result = USER_REGEX.test(user);
     // console.log(result);
-    // console.log(user);
+    console.log(user);
     setValidName(result);
   }, [user]);
 
