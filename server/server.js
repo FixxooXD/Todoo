@@ -14,6 +14,8 @@ db.once("open", () => console.log("connected to Database"));
 
 app.use(express.json());
 app.use(cors("http://127.0.0.1:5173"))
+app.use(cors("https://todoo-21kagpvew-fixxooxd.vercel.app/"))
+
 
 // Get all Todos
 app.get("/todos", async (req, res) => {
