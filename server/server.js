@@ -13,6 +13,12 @@ db.on("error", (error) => console.log(error));
 db.once("open", () => console.log("connected to Database"));
 
 app.use(express.json());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use(cors("http://127.0.0.1:5173"))
 app.use(cors("https://todoo-21kagpvew-fixxooxd.vercel.app/"))
 
@@ -39,6 +45,7 @@ app.get("/todos/:id", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
 
 // Add Todo
 app.post("/todos", async (req, res) => {
