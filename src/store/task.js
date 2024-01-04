@@ -138,10 +138,10 @@ export const todoSlice = createSlice({
      const dataa = action.payload
       console.log(dataa);
       let userName = dataa.userName
-      let userPassword = dataa.userPassword
-      console.log(userName, userPassword);
-      // let userId = action.payload.userId
-      state.users.userData.userInfo.push({userName, userPassword})
+      let pwd = dataa.userPassword
+      console.log(userName, pwd);
+      // let userId = action.payload.userId 
+      state.users.userData.userInfo.push({userName, pwd })
     });
     builder.addCase(AddUser.pending, (state, action) => {
       console.log("Pending");
