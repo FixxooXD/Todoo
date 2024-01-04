@@ -3,11 +3,11 @@ const mongoose = require("mongoose")
  const todoSchema = mongoose.Schema(
     {
             user:{
-                userId : {
-                    type: Number,
-                    required: [true, "Enter the userID"],
-                    unique: [true, "Enter a Unique userId"]
-                },
+                // userId : {
+                //     type: Number,
+                //     required: [true, "Enter the userID"],
+                //     unique: [true, "Enter a Unique userId"]
+                // },
                 userName :{
                     type: String,
                     required: [true, "Enter the userID"],

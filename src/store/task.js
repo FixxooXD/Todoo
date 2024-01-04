@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { nanoid } from "@reduxjs/toolkit";
 import axios from "axios";
 
 // const taskSlice = useSelector(state => state.task.todo);
@@ -15,9 +16,9 @@ export const fetchTasks = createAsyncThunk("fetchTasks", async () => {
  export const AddUser = createAsyncThunk("AddUser", async ({userName, password}) => {
   try {
     console.log(userName)
+    console.log(password);
     const response = await axios.post("http://localhost:3000/todos", {
       user: {
-        userId: ++userId,
         userName: userName,
         userPassword: password
       },
@@ -51,7 +52,6 @@ const initialState = {
 };
 
 let taskID = 0;
-let userId = 0;
 
 export const todoSlice = createSlice({
   name: "Todo",
@@ -59,7 +59,7 @@ export const todoSlice = createSlice({
   reducers: {
     addUser: (state, actions) => {
       let user = {
-        userId: ++userId,
+        // userId: ++userId,
         userName: actions.payload.userName,
         userPassword: actions.payload.password,
       };
@@ -135,11 +135,27 @@ export const todoSlice = createSlice({
       state.isError = action.payload.error;
     });
     builder.addCase(AddUser.fulfilled, (state, action) => {
-      console.log(action.payload.userName);
-      let userName = action.payload.userName
-      let userPassword = action.payload.userPassword
-      let userId = action.payload.userId
-      state.users.userData.userInfo.push({userId, userName, userPassword})
+     const dataa = action.payload
+      console.log(dataa);
+      let userName = dataa.userName
+      let userPassword = dataa.userPassword
+      console.log(userName, userPassword);
+      // let userId = action.payload.userId
+      state.users.userData.userInfo.push({userName, userPassword})
+    });
+    builder.addCase(AddUser.pending, (state, action) => {
+      console.log("Pending");
+      // let userName = action.payload.userName
+      // let userPassword = action.payload.userPassword
+      // let userId = action.payload.userId
+      // state.users.userData.userInfo.push({userId, userName, userPassword})
+    })
+    builder.addCase(AddUser.rejected, (state, action) => {
+      console.log("error");
+      // let userName = action.payload.userName
+      // let userPassword = action.payload.userPassword
+      // let userId = action.payload.userId
+      // state.users.userData.userInfo.push({userId, userName, userPassword})
     })
   },
 });
