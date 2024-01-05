@@ -20,6 +20,10 @@ app.use(function(req, res, next) {
   next();
 });
 app.use(cors("http://127.0.0.1:5173"))
+app.use(cors({
+  origin: "*",
+  credentails: true,
+}))
 app.use(cors("https://todoo-21kagpvew-fixxooxd.vercel.app/"))
 
 

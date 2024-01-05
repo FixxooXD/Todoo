@@ -27,6 +27,8 @@ export const fetchTasks = createAsyncThunk("fetchTasks", async () => {
         isEditing: false, 
         isComplete: false
       }]
+    }, {
+      
     });
     return response.data.user;
   } catch (error) {
